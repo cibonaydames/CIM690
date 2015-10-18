@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        
+        <style>
+            li {
+                padding: 10px;
+                border: 1px solid #bada55;
+                background: #efefef;
+                width: 200px;
+                list-style: none;
+            }
+        </style>
+        
+    
+    </head>
+    <body>
+       
+       <h1>Spotify Album Search:</h1> 
+       <input type="text" name="search" id="searchBox" placeholder="Enter album name here">
+       <input type="submit" value="Search" id="search">
+       
+       
+<ul id="results">
+
+</ul>
+<!--        Documentation: 
+       https://developer.spotify.com/web-api/search-item/
+       -->
+        
+        <script>
+var spotSearch = function(){
+    
+    var query = $("#searchBox").val();
+    
+    $.ajax({
+        url: 'https://api.spotify.com/v1/search?q='+query+'&type=album&limit=50'
+    }).success(function(response){
+    var albums = response.albums.items;
+        console.log(albums);
+    var result="";
+    for(var i=0,len=albums.length;i<len;i++){
+        var album = albums[i];
+        
+        result= result + "<li><a href="+album.external_urls.spotify+">" + album.name + "</a></li>";
+    }
+    $("#results").html(result);
+});
+}
+
+$('#search').click(spotSearch)
+
+
+        </script>
+        
+        
+    </body>
+</html>

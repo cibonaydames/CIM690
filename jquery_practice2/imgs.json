@@ -1,0 +1,24 @@
+{
+   "gallery": [
+      {
+         "caption": "Farm",
+         "imgPath": "img/img1.jpg"
+      },
+      {
+         "caption": "Pool",
+         "imgPath": "img/img2.jpg"
+      },
+      {
+         "caption": "Kayak",
+         "imgPath": "img/img3.jpg"
+      },
+      {
+         "caption": "Beach",
+         "imgPath": "img/img4.jpg"
+      },
+      {
+         "caption": "Dogs",
+         "imgPath": "img/img5.jpg"
+      }
+  ]
+}
